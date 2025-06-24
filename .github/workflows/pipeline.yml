@@ -40,25 +40,25 @@ jobs:
       - name: Discord success notification
         if: ${{ success() && github.event_name == 'push' && !contains(join(github.event.commits.*.message, ''), '#skip') }}
         uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: |
+          args: |
             ✅ Deploy successful!
             Repo: ${{ github.repository }}
             Commit: ${{ github.sha }}
-            Author: ${{ github.actor }}
 
       - name: Discord failure notification
         if: ${{ failure() }}
         uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: |
+          args: |
             ❌ Build failed!
             Repo: ${{ github.repository }}
             Branch: ${{ github.ref_name }}
             Commit: ${{ github.sha }}
-            Author: ${{ github.actor }}
             Message: ${{ github.event.head_commit.message }}
   tag_release:
     needs: [simple_deployment_pipeline]
