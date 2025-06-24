@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.get('/version', (req, res) => {
-  res.send('3')
+  throw Error('Simulated failure')
 })
 
 app.get('/health', (req, res) => {
