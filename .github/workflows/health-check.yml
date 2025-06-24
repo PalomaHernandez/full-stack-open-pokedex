@@ -16,5 +16,5 @@ jobs:
         with:
           url: https://full-stack-open-pokedex-uegx.onrender.com/version
           max-attempts: 3
-          retry-delay: 10
+          retry-delay: 10s
           retry-all: true
