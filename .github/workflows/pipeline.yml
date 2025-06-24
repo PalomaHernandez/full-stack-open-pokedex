@@ -3,7 +3,7 @@ name: Deployment pipeline
 on:
   push:
     branches:
-      - main
+      - never-trigger-this-branch
   pull_request:
     branches: [main]
     types: [opened, synchronize]
