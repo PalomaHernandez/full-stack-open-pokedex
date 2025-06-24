@@ -36,7 +36,7 @@ jobs:
           retention-days: 30
       - name: Trigger deployment
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ''), '#skip') }}
-        run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+        run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ }}?key=${{ secrets.RENDER_API_KEY }}
       - name: Discord success notification
         if: ${{ success() && github.event_name == 'push' && !contains(join(github.event.commits.*.message, ''), '#skip') }}
         uses: Ilshidur/action-discord@master
