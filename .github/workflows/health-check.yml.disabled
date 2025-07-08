@@ -1,0 +1,20 @@
+# name: Health Check
+
+# on:
+#schedule:
+# - cron: '0 */12 * * *'
+#workflow_dispatch:
+#push:
+# branches: [main]
+
+#jobs:
+# health_check:
+#  runs-on: ubuntu-latest
+# steps:
+#  - name: Check deployed app health
+#   uses: Jtalk/url-health-check-action@v4
+#  with:
+#   url: https://full-stack-open-pokedex-uegx.onrender.com/version
+#  max-attempts: 3
+# retry-delay: 10s
+# retry-all: true

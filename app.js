@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
 
-app.get('/version', (req, res) => {
-  res.send('3')
+app.get('/version', (_req, res) => {
+  res.send(3)
 })
 
-app.get('/health', (req, res) => {
+app.get('/health', (_req, res) => {
   res.send('ok')
 })
 
